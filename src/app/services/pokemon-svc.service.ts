@@ -10,8 +10,8 @@ export class PokemonSvcService {
 
   private baseUrl: string = 'https://pokeapi.co/api/v2/pokemon';
 
-  getAllPokemons(){
-    return this.http.get(`${this.baseUrl}?limit=1`);
+  getAllPokemons(limit: number, offset: number){
+    return this.http.get(`${this.baseUrl}?limit=${limit}&offset=${offset}`);
   }
 
   getPokemonInfo(name: string){
