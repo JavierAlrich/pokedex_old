@@ -1,0 +1,47 @@
+<div class="pokedex">
+    <div class="titulo">
+        <h2>Pokedex</h2>
+    </div>
+    <div class="logo">
+        <img src="../../../assets/img/pokemon_logo.png" alt="">
+    </div>
+    <div class="clear"></div>
+    <hr>
+
+    <div class="leftSide">
+        <div class="text-center">
+            <!-- <button (click)="previousPage()">
+                Anterior
+            </button>
+            <button (click)="nextPage()"
+                    [disabled]="(pokemons | filtro:page:search).length === 0">
+                Siguiente
+            </button>
+            <input type="text" #txtSearch (keyup)="onSearchPokemon(txtSearch.value)" placeholder="Buscar Pokemón"> -->
+        
+            <div class="pokemonSection" *ngFor="let pokemon of pokemons">
+                <div class="imageScreen">
+                    <!-- <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name"> -->
+                    <img *ngIf="pokemon.id<=650" [src]="pic_moderno + pokemon.id + '.svg'" alt="">
+                    <img *ngIf="pokemon.id>=650" [src]="pic_sprite + pokemon.id + '.png'" alt="">
+                    <p># {{pokemon.id}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightSide" *ngFor="let pokemon of pokemons">
+        <h3>{{pokemon.name}}</h3>
+        <div class="infoPokemon">
+            <p *ngFor="let pokemonType of pokemon.types">
+                {{pokemonType.type.name}}<br>
+            </p>
+            <p *ngFor="let pokemonAbility of pokemon.abilities">
+                {{pokemonAbility.ability.name}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
